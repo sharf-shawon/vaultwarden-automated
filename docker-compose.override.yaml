@@ -13,6 +13,14 @@ services:
 
   backup:
     # Override for local filesystem backups instead of S3
+    # NOTE: When using this override, you must still provide placeholder values
+    # for the required S3 variables in your .env file to prevent errors.
+    # For example:
+    # S3_BUCKET_NAME=local
+    # S3_ACCESS_KEY=local
+    # S3_SECRET_KEY=local
+    # S3_PATH=local
+    # S3_ENDPOINT=local
     environment:
       # Disable S3, enable local backup
       - BACKUP_ARCHIVE=/archive
@@ -41,7 +49,6 @@ services:
   #   networks:
   #     - vaultwarden-network
   #   labels:
-  #     - "com.centurylinklabs.watchtower.enable=true"
   #     - "backup.enable=true"
 
   # Uncomment for reverse proxy with automatic SSL
@@ -62,8 +69,6 @@ services:
   #     - vaultwarden
   #   networks:
   #     - vaultwarden-network
-  #   labels:
-  #     - "com.centurylinklabs.watchtower.enable=true"
 
 # volumes:
 #   postgres-data:

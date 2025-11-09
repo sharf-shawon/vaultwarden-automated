@@ -26,7 +26,7 @@ else
 fi
 
 # Required variables check
-required_vars=("S3_BUCKET_NAME" "S3_ACCESS_KEY" "S3_SECRET_KEY" "BACKUP_ENCRYPTION_KEY")
+required_vars=("S3_BUCKET_NAME" "S3_ACCESS_KEY" "S3_SECRET_KEY" "BACKUP_ENCRYPTION_KEY" "S3_PATH")
 for var in "${required_vars[@]}"; do
     if [ -z "${!var}" ]; then
         echo -e "${RED}Error: Required variable $var is not set in .env${NC}"
@@ -54,7 +54,7 @@ list_backups() {
         -e AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY" \
         -e AWS_SECRET_ACCESS_KEY="$S3_SECRET_KEY" \
         -e AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}" \
-        amazon/aws-cli s3 ls "s3://${S3_BUCKET_NAME}/${S3_PATH:-vaultwarden-backups}/" \
+        amazon/aws-cli s3 ls "s3://${S3_BUCKET_NAME}/${S3_PATH}/" \
         ${S3_ENDPOINT:+--endpoint-url=${S3_ENDPOINT_PROTO:-https}://${S3_ENDPOINT}} \
         | grep -E "\.tar\.gz(\.gpg)?$" \
         | sort -r
@@ -73,7 +73,7 @@ download_backup() {
         -e AWS_SECRET_ACCESS_KEY="$S3_SECRET_KEY" \
         -e AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}" \
         amazon/aws-cli s3 cp \
-        "s3://${S3_BUCKET_NAME}/${S3_PATH:-vaultwarden-backups}/${backup_file}" \
+        "s3://${S3_BUCKET_NAME}/${S3_PATH}/${backup_file}" \
         "/backup/${backup_file}" \
         ${S3_ENDPOINT:+--endpoint-url=${S3_ENDPOINT_PROTO:-https}://${S3_ENDPOINT}}
     

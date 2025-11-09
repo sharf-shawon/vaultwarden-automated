@@ -90,9 +90,9 @@ Coolify will automatically detect the required environment variables. Configure 
   - MinIO: `minio.yourdomain.com`
 
 **S3_PATH**
-- Description: Path prefix within bucket
-- Default: `vaultwarden-backups`
-- Optional: Can be left as default
+- Description: Path prefix within bucket for backups
+- Example: `vaultwarden-backups`
+- Required: ✅
 
 #### Backup Settings
 
