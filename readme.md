@@ -80,8 +80,8 @@ See [Coolify Deployment Guide](docs/coolify-deploy.md) for detailed instructions
 
 3. **Generate required secrets:**
    ```bash
-   # Admin token
-   openssl rand -base64 48
+   # Admin token (enter your password at the prompt)
+   docker run --rm -it vaultwarden/server:latest /vaultwarden hash
    
    # Backup encryption key
    openssl rand -base64 32

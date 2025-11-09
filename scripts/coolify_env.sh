@@ -6,8 +6,8 @@
 # Example: https://vault.example.com
 SERVICE_URL_VAULTWARDEN=https://vault.example.com
 
-# Admin Token - Secure token for accessing admin panel (/admin)
-# Generate with: openssl rand -base64 48
+# Admin Token - Secure hashed token for accessing admin panel (/admin)
+# Generate by running: docker run --rm -it vaultwarden/server:latest /vaultwarden hash
 SERVICE_PASSWORD_64_ADMIN=
 
 # Database URL - Leave default for SQLite, or use PostgreSQL connection string

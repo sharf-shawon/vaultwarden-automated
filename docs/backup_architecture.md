@@ -9,38 +9,38 @@ This document explains the backup system architecture, data flow, and technical 
 │                      Vaultwarden Stack                          │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  ┌──────────────┐         ┌──────────────┐                    │
-│  │  Vaultwarden │         │  Watchtower  │                    │
-│  │   Container  │         │   Container  │                    │
-│  │              │         │              │                    │
-│  │  Port: 8080  │         │  Updates     │                    │
-│  │  Health:     │         │  containers  │                    │
-│  │  /alive      │         │  daily       │                    │
-│  └──────┬───────┘         └──────────────┘                    │
+│  ┌──────────────┐         ┌──────────────┐                      │
+│  │  Vaultwarden │         │  Watchtower  │                      │
+│  │   Container  │         │   Container  │                      │
+│  │              │         │              │                      │
+│  │  Port: 8080  │         │  Updates     │                      │
+│  │  Health:     │         │  containers  │                      │
+│  │  /alive      │         │  daily       │                      │
+│  └──────┬───────┘         └──────────────┘                      │
 │         │                                                       │
 │         │ Mounts                                                │
 │         ↓                                                       │
-│  ┌──────────────┐                                              │
-│  │  Volume:     │                                              │
-│  │  vaultwarden │                                              │
-│  │  -data       │                                              │
-│  │              │                                              │
-│  │  Contents:   │                                              │
-│  │  - db.sqlite3│                                              │
-│  │  - attachmts │                                              │
-│  │  - config    │←──────────────────────┐                     │
-│  └──────────────┘                        │                     │
-│         │                                 │ Read-only          │
+│  ┌──────────────┐                                               │
+│  │  Volume:     │                                               │
+│  │  vaultwarden │                                               │
+│  │  -data       │                                               │
+│  │              │                                               │
+│  │  Contents:   │                                               │
+│  │  - db.sqlite3│                                               │
+│  │  - attachmts │                                               │
+│  │  - config    │←────────────────────────┐                     │
+│  └──────────────┘                         │                     │
+│         │                                 │ Read-only           │
 │         │                                 │                     │
 │         └─────────────────────────────────┤                     │
 │                                           │                     │
-│                                    ┌──────┴────────┐           │
-│                                    │    Backup     │           │
-│                                    │   Container   │           │
-│                                    │               │           │
-│                                    │  Cron: Daily  │           │
-│                                    │  at 2 AM      │           │
-│                                    └───────┬───────┘           │
+│                                    ┌──────┴────────┐            │
+│                                    │    Backup     │            │
+│                                    │   Container   │            │
+│                                    │               │            │
+│                                    │  Cron: Daily  │            │
+│                                    │  at 2 AM      │            │
+│                                    └───────┬───────┘            │
 │                                            │                    │
 └────────────────────────────────────────────┼────────────────────┘
                                              │

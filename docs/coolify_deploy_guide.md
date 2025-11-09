@@ -46,8 +46,8 @@ Coolify will automatically detect the required environment variables. Configure 
 - Required: ✅
 
 **SERVICE_PASSWORD_64_ADMIN**
-- Description: Admin panel access token
-- Generate: `openssl rand -base64 48`
+- Description: A securely hashed admin panel access token.
+- Generate: Run `docker run --rm -it vaultwarden/server:latest /vaultwarden hash` and enter your desired password.
 - Required: ✅
 - ⚠️ Store securely!
 
