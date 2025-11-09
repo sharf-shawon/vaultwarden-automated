@@ -4,13 +4,13 @@ services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
-    restart: unless-stopped
+    restart: always
     environment:
       - DOMAIN=${SERVICE_URL_VAULTWARDEN}
       - DATABASE_URL=${VAULTWARDEN_DB_URL:-/data/db.sqlite3}
       - SIGNUPS_ALLOWED=${SIGNUP_ALLOWED:-false}
       - ADMIN_TOKEN=${SERVICE_PASSWORD_64_ADMIN}
-      # - IP_HEADER=X-Forwarded-For
+      - IP_HEADER=${IP_HEADER:-CF-Connecting-IP}
       - PUSH_ENABLED=${PUSH_ENABLED:-false}
       - PUSH_INSTALLATION_ID=${PUSH_SERVICE_ID:-}
       - PUSH_INSTALLATION_KEY=${PUSH_SERVICE_KEY:-}

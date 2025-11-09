@@ -131,6 +131,11 @@ Coolify will automatically detect the required environment variables. Configure 
 - Options: `trace`, `debug`, `info`, `warn`, `error`
 - Default: `info`
 
+**IP_HEADER**
+- Description: Header to use for client IP address.
+- If using Cloudflare, set this to `CF-Connecting-IP`.
+- Default: `X-Forwarded-For`
+
 **WATCHTOWER_POLL_INTERVAL**
 - Description: Update check interval (seconds)
 - Default: `86400` (24 hours)

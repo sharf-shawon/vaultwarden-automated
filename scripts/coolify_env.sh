@@ -36,6 +36,12 @@ LOG_LEVEL=info
 # Extended logging for troubleshooting
 EXTENDED_LOGGING=true
 
+# Header to use for client IP address (for logging and fail2ban)
+# If using Cloudflare, set to "CF-Connecting-IP"
+# Other common values: "X-Forwarded-For", "X-Real-IP"
+IP_HEADER=CF-Connecting-IP
+# IP_HEADER=X-Forwarded-For
+
 # =============================================================================
 # PUSH NOTIFICATIONS (Optional - requires Bitwarden Push Relay)
 # =============================================================================
