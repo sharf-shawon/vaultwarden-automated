@@ -192,7 +192,7 @@ environment:
   - GPG_PASSPHRASE=encryption-key
   
   # Optional Features
-  - BACKUP_STOP_CONTAINER_LABEL=backup.stop=true
+  - BACKUP_STOP_DURING_BACKUP_LABEL=backup.stop=true
   - NOTIFICATION_URLS=webhook-url
 ```
 

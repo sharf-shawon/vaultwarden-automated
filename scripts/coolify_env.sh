@@ -114,7 +114,7 @@ BACKUP_ENCRYPTION_KEY=
 
 # Stop containers during backup for consistency (backup.stop=true label required)
 # Leave empty to keep containers running during backup
-BACKUP_STOP_DURING_BACKUP=
+BACKUP_STOP_DURING_BACKUP_LABEL=
 
 # Forward backup command output to logs
 BACKUP_EXEC_FORWARD_OUTPUT=true

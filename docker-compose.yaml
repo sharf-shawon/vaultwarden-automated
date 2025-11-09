@@ -72,7 +72,8 @@ services:
       - BACKUP_SKIP_BACKENDS_FROM_PRUNE=${BACKUP_SKIP_BACKENDS_FROM_PRUNE:-}
       
       # Stop containers during backup (optional, for consistency)
-      - BACKUP_STOP_CONTAINER_LABEL=${BACKUP_STOP_DURING_BACKUP:-true}
+      # Stop containers during backup (optional, for consistency)
+      - BACKUP_STOP_DURING_BACKUP_LABEL=${BACKUP_STOP_DURING_BACKUP:-backup.stop=true}
       
       # Exec commands (optional healthcheck)
       - EXEC_LABEL=backup.enable
