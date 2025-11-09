@@ -137,6 +137,18 @@ BACKUP_NOTIFICATION_LEVEL=error
 WATCHTOWER_POLL_INTERVAL=86400
 
 # Notification URL for update events (optional)
+# Uses Shoutrrr URL format. See https://containrrr.dev/shoutrrr/
+#
+# For self-hosted ntfy, it's most reliable to use the 'generic' provider.
+#
+# Example for ntfy using the generic provider (HTTP):
+# WATCHTOWER_NOTIFICATION_URL=generic+http://ntfy.example.com/your-topic
+#
+# Example with a high priority header:
+# WATCHTOWER_NOTIFICATION_URL=generic+http://ntfy.example.com/your-topic?header-X-Priority=4
+#
+# Example with basic auth (if your ntfy server needs it):
+# WATCHTOWER_NOTIFICATION_URL=generic+http://user:password@ntfy.example.com/your-topic
 WATCHTOWER_NOTIFICATION_URL=
 
 # Notification level for Watchtower (panic, fatal, error, warn, info, debug, trace)

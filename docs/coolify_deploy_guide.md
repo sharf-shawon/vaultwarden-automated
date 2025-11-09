@@ -135,6 +135,12 @@ Coolify will automatically detect the required environment variables. Configure 
 - Description: Update check interval (seconds)
 - Default: `86400` (24 hours)
 
+**WATCHTOWER_NOTIFICATION_URL**
+- Description: Notification URL for update events (uses Shoutrrr format)
+- See: `https://containrrr.dev/shoutrrr/`
+- Example for ntfy: `generic+http://ntfy.example.com/your-topic`
+- Optional: Leave empty to disable
+
 **TZ**
 - Description: Timezone for logs and scheduling
 - Example: `America/New_York`, `Europe/London`, `Asia/Tokyo`
